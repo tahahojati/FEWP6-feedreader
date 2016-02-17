@@ -35,7 +35,7 @@ $(function() {
                 expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url).not.toBe("");
             }
-        })
+        });
 
 
         /* TODO: Write a test that loops through each feed
@@ -47,7 +47,7 @@ $(function() {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name).not.toBe("");
             }
-        })
+        });
     });
 
 
@@ -106,18 +106,18 @@ $(function() {
             preFirstFeed = document.getElementsByClassName("entry")[0].innerHTML;
             loadFeed(1, done);
 
-        })
+        });
         it('should change the context after loadfeed is executed', function() {
             expect(document.getElementsByClassName("entry")[0].innerHTML).toBeDefined();
             expect(document.getElementsByClassName("entry")[0].innerHTML).not.toBe(preFirstFeed);
-        })
+        });
 
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection"
+    /* TODO: Write a new test suite named "New Feed Selection"*/
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+    /* TODO: Write a test that ensures when a new feed is loaded
+     * by the loadFeed function that the content actually changes.
+     * Remember, loadFeed() is asynchronous.
+     */
 }());
