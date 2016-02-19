@@ -76,8 +76,7 @@ $(function() {
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.*/
         beforeEach(function(done) {
-            setTimeout(done, 1000);
-
+            loadFeed(0, done);
         });
         it('must exist (at least one of them must exist)', function() {
             //console.log(document.getElementsByClassName('entry')[0]);
@@ -88,18 +87,23 @@ $(function() {
     /*  new test suite named "New Feed Selection"*/
     describe('New Feed Selection', function() {
         var preFirstFeed = "";
+        //jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
         beforeEach(function(done) {
-            console.log(document.getElementsByClassName("entry")[0].innerHTML);
-            preFirstFeed = document.getElementsByClassName("entry")[0].innerHTML;
-            loadFeed(1, done);
-
+            //console.log(document.getElementsByClassName("entry")[0].innerHTML);
+            loadFeed(1, done2(done));
         });
-        
-    /*  test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     */
+        function done2(done) {
+            preFirstFeed = document.getElementsByClassName("entry")[0].innerHTML;
+            //console.
+            loadFeed(2, done);
+        }
+
+        /*  test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         */
         it('should change the context after loadfeed is executed', function() {
             expect(document.getElementsByClassName("entry")[0].innerHTML).toBeDefined();
+            expect(preFirstFeed).not.toBe("");
             expect(document.getElementsByClassName("entry")[0].innerHTML).not.toBe(preFirstFeed);
         });
 
